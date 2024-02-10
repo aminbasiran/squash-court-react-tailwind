@@ -12,16 +12,16 @@
   background-color: #242424; */
   background-color: #F8FAFC;
 
+  text-align: center;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
+.main {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 2rem; */
-  text-align: center;
-  margin-top: 60px
+  padding: 2rem;
 }
