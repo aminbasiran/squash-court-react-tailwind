@@ -12,7 +12,6 @@ function App() {
 
   useLayoutEffect(()=>{
     const fetchData = async() =>{
-
       try {
         const response = await axios("http://localhost:3000/squash")
 
@@ -41,7 +40,7 @@ function App() {
     <>
       <Navbar/>
       <Main courts={courts} isLoading={isLoading}/>
-      <Footer/>
+      {!isLoading && <Footer />}
     </>
   )
 }

@@ -6,7 +6,7 @@ import { appendAddress } from '../../utils/appendAddress'
 const Card = ({venue}) => {
     return (
         <div>
-            <div className='bg-red-100 w-full rounded-b-md'>
+            <div className='w-full rounded-b-md'>
                 {venue.images[0] ? <img src={venue.images[0]} alt="" className='object-contain'/> : <ImageNotFound/>}
             </div>
             <div className='bg-white p-4 rounded-b-md shadow-md hover:cursor-pointer'>
