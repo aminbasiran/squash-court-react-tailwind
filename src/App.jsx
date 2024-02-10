@@ -1,14 +1,24 @@
-import { useState, useLayoutEffect} from "react"
+import {useLayoutEffect,useEffect} from "react"
 import axios from "axios"
-
 import Navbar from "./components/Navbar/Navbar"
 import Main from "./components/Main/Main"
 import Footer from "./components/Footer/Footer"
+import { useGlobalStore } from "./ContextProvider"
 
 function App() {
   
-  const [courts, setCourts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const {state,dispatch} = useGlobalStore()
+  
+  useLayoutEffect(()=>{
+    if (JSON.parse(sessionStorage.getItem("dark")) === true) {
+      document.documentElement.classList.add('dark')
+      dispatch({type:"SET_DARKMODE",payload:{mode:true}})
+    } else {
+      document.documentElement.classList.remove('dark')
+      dispatch({type:"SET_DARKMODE",payload:{mode:false}})
+    }
+
+  },[])
 
   useLayoutEffect(()=>{
     const fetchData = async() =>{
@@ -16,7 +26,7 @@ function App() {
         const response = await axios("http://localhost:3000/squash")
 
         if(response){
-          setCourts(response.data.courts)
+          dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
         }
         
       } 
@@ -26,7 +36,7 @@ function App() {
       }
 
       finally{
-        setIsLoading(false)
+        dispatch({type:"SET_LOADING",payload:{status:false}})
       }
       
     }
@@ -37,11 +47,11 @@ function App() {
 
   return (
 
-    <>
+    <div className="dark:bg-[#181619] transition-all duration-500 ease-in-out">
       <Navbar/>
-      <Main courts={courts} isLoading={isLoading}/>
-      {!isLoading && <Footer />}
-    </>
+      <Main/>
+      {!state.isLoading && <Footer />}
+    </div>
   )
 }
 
