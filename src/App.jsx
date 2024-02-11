@@ -8,6 +8,8 @@ import { useGlobalStore } from "./ContextProvider"
 function App() {
   
   const {state,dispatch} = useGlobalStore()
+
+  console.log(state.courts)
   
   useLayoutEffect(()=>{
     if (JSON.parse(sessionStorage.getItem("dark")) === true) {
@@ -47,11 +49,12 @@ function App() {
 
   return (
 
-    <div className="dark:bg-[#181619] transition-all duration-500 ease-in-out">
+    <div className="flex flex-col h-full transition-all duration-500 ease-in-out dark:bg-[#181619]">
       <Navbar/>
       <Main/>
       {!state.isLoading && <Footer />}
     </div>
+
   )
 }
 
