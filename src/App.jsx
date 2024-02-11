@@ -1,15 +1,25 @@
 import {useLayoutEffect,useEffect} from "react"
 import axios from "axios"
-import Navbar from "./components/Navbar/Navbar"
-import Main from "./components/Main/Main"
-import Footer from "./components/Footer/Footer"
+import SquashCourt from "./pages/SquashCourt"
+import SquashStore from "./pages/SquashStore"
+import Layout from "./components/Layout/Layout"
 import { useGlobalStore } from "./ContextProvider"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
   
-  const {state,dispatch} = useGlobalStore()
+  const {dispatch} = useGlobalStore()
 
-  console.log(state.courts)
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <SquashCourt />,
+    },
+    {
+      path: '/store',
+      element: <SquashStore />,
+    },
+  ]);
   
   useLayoutEffect(()=>{
     if (JSON.parse(sessionStorage.getItem("dark")) === true) {
@@ -48,13 +58,7 @@ function App() {
   },[])
 
   return (
-
-    <div className="flex flex-col h-full transition-all duration-500 ease-in-out dark:bg-[#181619]">
-      <Navbar/>
-      <Main/>
-      {!state.isLoading && <Footer />}
-    </div>
-
+        <RouterProvider router={router} />
   )
 }
 
