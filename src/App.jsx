@@ -6,20 +6,24 @@ import Layout from "./components/Layout/Layout"
 import { useGlobalStore } from "./ContextProvider"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+const WrappedSquashCourtWithLayout = Layout(SquashCourt)
+const WrappedSquashStoreWithLayout = Layout(SquashStore)
+
 function App() {
   
   const {dispatch} = useGlobalStore()
-
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <SquashCourt />,
+      element: <WrappedSquashCourtWithLayout/>
+              
     },
     {
       path: '/store',
-      element: <SquashStore />,
+      element: <WrappedSquashStoreWithLayout/>
     },
   ]);
+
   
   useLayoutEffect(()=>{
     if (JSON.parse(sessionStorage.getItem("dark")) === true) {
@@ -33,12 +37,19 @@ function App() {
   },[])
 
   useLayoutEffect(()=>{
-    const fetchData = async() =>{
+    const fetchData = async(endpoint) =>{
       try {
-        const response = await axios("http://localhost:3000/squash")
+        const response = await axios(`http://localhost:3000/${endpoint}`)
 
         if(response){
-          dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
+
+          if(endpoint === "courts"){
+            dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
+            
+          }
+          else(
+            dispatch({type:"SET_STORES",payload:{stores:response.data.stores}})
+          )
         }
         
       } 
@@ -48,12 +59,19 @@ function App() {
       }
 
       finally{
-        dispatch({type:"SET_LOADING",payload:{status:false}})
+        if(endpoint === "courts"){
+          dispatch({type:"SET_COURT_LOADING",payload:{status:false}})
+          
+        }
+        else(
+          dispatch({type:"SET_STORE_LOADING",payload:{status:false}})
+          
+        )
       }
-      
     }
 
-    setTimeout(fetchData,2000)
+    setTimeout(()=>fetchData("courts"),2000)
+    setTimeout(()=>fetchData("stores"),6000)
     
   },[])
 

@@ -22,10 +22,16 @@ const Navbar = () => {
     return (
         <div className=' bg-white grow-0 p-4 shadow-lg dark:bg-[#181619] transition-all duration-500 ease-in-out'>
             <div className='flex justify-between place-items-center'>
-                <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-fuchsia-600">HUB</span></h1>
+                <Link to="/">
+                    <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-fuchsia-600">HUB</span>.io</h1>
+                
+                </Link>
                 <div className="flex place-items-center space-x-5 transition-all duration-500 ease-in-out dark:text-white">
                     {state.isDarkMode ?  <LuSun onClick={handleBrightMode} className="text-xl hover:cursor-pointer"/> :<BsMoonStarsFill onClick={handleDarkMode} className="hover:cursor-pointer"/>}
                     {/* <h1 className=" text-sm font-medium ">Store</h1> */}
+                    <Link to="/store">
+                        <h1 className=" text-sm font-medium ">Store</h1>
+                    </Link>
                     <a href="https://example.com" target="_blank" rel="noopener noreferrer"><h1 className='text-sm font-medium hover:cursor-pointer'>Get API</h1></a>
                 </div>
             </div>
