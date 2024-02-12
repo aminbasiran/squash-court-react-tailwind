@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Searchbar from '../components/Searchbar/Searchbar'
 import { useGlobalStore } from '../ContextProvider';
-
 import Venuelists from '../components/Venuelists/Venuelists';
 
 const SquashStore = () => {
