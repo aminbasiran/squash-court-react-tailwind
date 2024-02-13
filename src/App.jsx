@@ -5,11 +5,15 @@ import SquashStore from "./pages/SquashStore"
 import Layout from "./components/Layout/Layout"
 import { useGlobalStore } from "./ContextProvider"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useTranslation } from "react-i18next"
+
 
 const WrappedSquashCourtWithLayout = Layout(SquashCourt)
 const WrappedSquashStoreWithLayout = Layout(SquashStore)
 
 function App() {
+
+  const { i18n } = useTranslation();
   
   const {dispatch} = useGlobalStore()
   const router = createBrowserRouter([
@@ -23,6 +27,12 @@ function App() {
       element: <WrappedSquashStoreWithLayout/>
     },
   ]);
+
+
+  useLayoutEffect(()=>{
+    const lng = navigator.language
+    i18n.changeLanguage(lng)
+  },[])
 
   
   useLayoutEffect(()=>{
