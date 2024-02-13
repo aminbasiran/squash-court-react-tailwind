@@ -1,6 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const SpringModal = ({ venue, isOpen, setIsOpen }) => {
+
+    const {t} = useTranslation("global")
+
     return (
     <AnimatePresence>
     {isOpen && (
@@ -24,14 +28,17 @@ export const SpringModal = ({ venue, isOpen, setIsOpen }) => {
             <h3 className="text-black text-2xl font-bold text-center mb-2 dark:text-white">
                 {venue.name}
             </h3>
-            <p className="font-semibold text-gray-500 text-left text-sm mb-2">
-                Operating hours:
+            <p className="font-semibold text-gray-400 text-left text-sm mb-2">
+                {t("Operating hours")}:
             </p>
-            <p className="font-semibold text-gray-500 text-left text-sm mb-2">
-                Location:
+            <p className="font-semibold text-gray-400 text-left text-sm mb-2">
+                {t("Rates")}:<span className="hover:cursor-pointer dark:text-white text-black"> RM{venue.rates.normal}/ <span className="text-black dark:text-white text-xs">hr</span></span>
             </p>
-            <p className="font-semibold text-gray-500 text-left text-sm mb-2">
-                Phone:
+            <p className="font-semibold text-gray-400 text-left text-sm mb-2 ">
+                {t("Location")}:<a href={venue.location} target="_blank" rel="noopener noreferrer"><span className="text-black hover:cursor-pointer dark:text-white"> {venue.location}</span></a>
+            </p>
+            <p className="font-semibold text-gray-400 text-left text-sm mb-2">
+                {t("Phone")}: <span className="hover:cursor-pointer text-black dark:text-white">{venue.phone.main}</span>
             </p>
             <div className="flex mt-6 gap-2">
                 
@@ -39,13 +46,15 @@ export const SpringModal = ({ venue, isOpen, setIsOpen }) => {
                 onClick={() => setIsOpen(false)}
                 className="bg-zinc-800 text-white text-sm dark:bg-[#8558FF] hover:opacity-90 transition-opacity dark:text-white  font-semibold w-full py-2 rounded"
                 >
-                Go back
+                {t("Go back")}
                 </button>
+                
                 <button
-                onClick={() => setIsOpen(false)}
-                className="bg-zinc-800 text-white text-sm dark:bg-[#8558FF] hover:opacity-90 transition-opacity dark:text-white  font-semibold w-full py-2 rounded"
+                    className="bg-zinc-800 text-white text-sm dark:bg-[#8558FF] hover:opacity-90 transition-opacity dark:text-white  font-semibold w-full py-2 rounded"
                 >
-                Book now!
+                    <a href={venue.web} target="_blank" rel="noopener noreferrer">
+                    {t("Book now")}
+                    </a>    
                 </button>
             </div>
             </div>

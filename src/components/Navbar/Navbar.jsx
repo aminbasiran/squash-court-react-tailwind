@@ -34,12 +34,12 @@ const Navbar = () => {
                     <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-[#8558FF]">HUB</span>.io</h1>
                 
                 </Link>
-                <div className='text-xs dark:text-white'>
-                    <span onClick={()=>handleChangeTranslation("en")} className='p-1 hover:cursor-pointer'>EN</span>
-                    {/* <span onClick={()=>handleChangeTranslation("es")} className='p-1 hover:cursor-pointer'>ES</span> */}
-                    <span onClick={()=>handleChangeTranslation("my")} className='p-1 hover:cursor-pointer'>MY</span>
-                </div>
                 <div className="flex place-items-center space-x-4 transition-all duration-500 ease-in-out dark:text-white">
+                    <div className='text-xs text dark:text-white'>
+                        <span onClick={()=>handleChangeTranslation("en")} className='p-1 hover:cursor-pointer'>EN</span>
+                        {/* <span onClick={()=>handleChangeTranslation("es")} className='p-1 hover:cursor-pointer'>ES</span> */}
+                        <span onClick={()=>handleChangeTranslation("my")} className='p-1 hover:cursor-pointer'>MY</span>
+                    </div>
                     {state.isDarkMode ?  <LuSun onClick={handleBrightMode} className="text-xl hover:cursor-pointer"/> :<BsMoonStarsFill onClick={handleDarkMode} className="hover:cursor-pointer"/>}
                     {/* <h1 className=" text-sm font-medium ">Store</h1> */}
                     <Link to="/store">

@@ -1,0 +1,42 @@
+{
+    "en": {
+        "translation": {
+            "Squash Finder": "Squash Finder",
+            "Store Finder": "Store Finder",
+            "Shop your squash equipments at your nearest store." : "Shop your squash equipments at your nearest store.",
+            "Play Anywhere, Anytime: Find squash courts here in Malaysia." : "Play Anywhere, Anytime: Find squash courts here in Malaysia.",
+            "Contribute to more stores." : "Contribute to more stores.",
+            "Feel free to contribute." : "Feel free to contribute.",
+            "Filter by region" : "Filter by region",
+            "Store" : "Store",
+            "Get API" : "Get API",
+            "View more" : "View more",
+            "Operating hours" : "Operating hours",
+            "Location" : "Location",
+            "Phone" : "Phone",
+            "Go back" : "Go back",
+            "Book now!" : "Book now!"
+        }
+    },
+    "my": {
+        "translation": {
+            "Squash Finder": "Carian Skuasy",
+            "Store Finder": "Kedai Skuasy",
+            "Shop your squash equipments at your nearest store." : "Cari peralatan skuasy di kedai terdekat dengan mudah.",
+            "Play Anywhere, Anytime: Find squash courts here in Malaysia." : "Main di mana-mana anda berada.",
+            "Feel free to contribute." : "Sumbang ke API kami.",
+            "Contribute to more stores." : "Sumbang ke API kami ",
+            "Filter by region" : "Tapis negeri",
+            "Store" : "Kedai",
+            "Get API" : "Dapatkan API",
+            "View more" : "Lihat butiran",
+            "Operating hours" : "Masa Operasi",
+            "Location" : "Lokasi",
+            "Phone" : "Telefon",
+            "Go back" : "Kembali",
+            "Book now" : "Tempah sekarang!"
+        }
+    }
+    
+
+}

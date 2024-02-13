@@ -1,13 +1,14 @@
-export const appendAddress = (addressObj) => {
+export const appendAddress = (address) => {
+    let multilineAddress = ""
 
-    let multiLineAddress = ""
-
-    for (const key in addressObj) {
-        const value = addressObj[key];
-        if (value !== "") { // Check if the value is not empty
-            multiLineAddress += `${value}, ` ; // Concatenate value with a newline character
+    for (const key in address){
+        const value = address[key]
+        if (value !== "") {
+            multilineAddress = multilineAddress + value + "," + " "
         }
+
     }
 
-    return multiLineAddress
+    const finalAddres = multilineAddress.slice(0, -2)
+    return finalAddres
 }
