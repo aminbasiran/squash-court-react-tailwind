@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
 
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation("global");
     const {state,dispatch} = useGlobalStore()
     
     const handleDarkMode = () =>{
@@ -34,9 +34,9 @@ const Navbar = () => {
                     <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-[#8558FF]">HUB</span>.io</h1>
                 
                 </Link>
-                <div className='text-xs'>
+                <div className='text-xs dark:text-white'>
                     <span onClick={()=>handleChangeTranslation("en")} className='p-1 hover:cursor-pointer'>EN</span>
-                    <span onClick={()=>handleChangeTranslation("es")} className='p-1 hover:cursor-pointer'>ES</span>
+                    {/* <span onClick={()=>handleChangeTranslation("es")} className='p-1 hover:cursor-pointer'>ES</span> */}
                     <span onClick={()=>handleChangeTranslation("my")} className='p-1 hover:cursor-pointer'>MY</span>
                 </div>
                 <div className="flex place-items-center space-x-4 transition-all duration-500 ease-in-out dark:text-white">

@@ -13,5 +13,6 @@
     "Location" : "Location",
     "Phone" : "Phone",
     "Go back" : "Go back",
-    "Book now!" : "Book now!"
+    "Book now!" : "Book now!",
+    "No results found. Try another keyword." : "No results found. Try another keyword."
 }

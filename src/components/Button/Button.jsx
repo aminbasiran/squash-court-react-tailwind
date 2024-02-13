@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const Button = ({venue}) => {
 
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation("global");
     const [isOpen, setIsOpen] = useState(false);
 
     const handleViewVenue= () => {

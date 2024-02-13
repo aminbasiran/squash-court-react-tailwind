@@ -1,9 +1,11 @@
 import { ClipLoader } from "react-spinners"
 import Card from "../Card/Card"
+import { useTranslation } from "react-i18next"
 
 const Venuelists = ({filter,state,isLoading}) => {
     
 
+    const {t} = useTranslation("global")
     return (
         <>
             {isLoading? <div className='mx-auto'><ClipLoader className="mt-10" color="#db70d6" size={50}/> </div> : <main className='flex flex-col space-y-9 '>
@@ -19,7 +21,7 @@ const Venuelists = ({filter,state,isLoading}) => {
                     </div>
                 </div>
                 ))}
-            {state.filter(filtered => filtered.region.toLowerCase().includes(filter.toLowerCase())).length === 0 && <h1 className="text-2xl mt-10 text-zinc-400">No results found. Try another keyword</h1>}
+            {state.filter(filtered => filtered.region.toLowerCase().includes(filter.toLowerCase())).length === 0 && <h1 className="text-2xl mt-10 text-zinc-400">{t("No results found. Try another keyword.")}</h1>}
             </main> }
         </>
     )

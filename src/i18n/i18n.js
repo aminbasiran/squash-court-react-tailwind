@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import global_en from "../resources/en/global.json"
-import global_es from "../resources/es/global.json"
 import global_my from "../resources/my/global.json"
+// import global_es from "../resources/es/global.json"
 
 // the translations
 // (tip move them in a JSON file and import them,
@@ -16,9 +16,9 @@ i18n
             en : {
                 global : global_en
             },
-            es : {
-                global : global_es
-            },
+            // es : {
+            //     global : global_es
+            // },
             my : {
                 global : global_my
             }

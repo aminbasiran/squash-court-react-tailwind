@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const Searchbar = ({handleFilterBy,filter}) => {
 
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation("global");
 
     const handleFilter = (e) => {
         handleFilterBy(e.target.value)
