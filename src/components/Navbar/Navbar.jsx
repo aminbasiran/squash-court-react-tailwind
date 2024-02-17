@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className=' bg-white grow-0 p-4 shadow-lg dark:bg-[#181619] transition-all duration-500 ease-in-out'>
             <div className='flex justify-between place-items-center'>
                 <Link to="/">
-                    <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-[#8558FF]">HUB</span>.io</h1>
+                    <h1 className='font-bold text-lg dark:text-white transition-all duration-500 ease-in-out'>Squash<span className="text-white font-extrabold pr-2 py-1  bg-[#8558FF]">HUB</span></h1>
                 
                 </Link>
                 <div className="flex place-items-center space-x-4 transition-all duration-500 ease-in-out dark:text-white">

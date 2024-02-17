@@ -4,29 +4,32 @@ import SquashCourt from "./pages/SquashCourt"
 import SquashStore from "./pages/SquashStore"
 import Layout from "./components/Layout/Layout"
 import { useGlobalStore } from "./ContextProvider"
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider,Navigate, useNavigate} from 'react-router-dom';
 import { useTranslation } from "react-i18next"
-
-const WrappedSquashCourtWithLayout = Layout(SquashCourt)
-const WrappedSquashStoreWithLayout = Layout(SquashStore)
 
 function App() {
 
   const { i18n } = useTranslation();
   
   const {dispatch} = useGlobalStore()
+
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <WrappedSquashCourtWithLayout/>
+      element: <Layout><SquashCourt/></Layout>
               
     },
     {
       path: '/store',
-      element: <WrappedSquashStoreWithLayout/>
+      element: <Layout><SquashStore/></Layout>
+    },
+    {
+      path: '*',
+      element: <Navigate to="/" replace />,
     },
   ]);
-
+ //
 
   useLayoutEffect(()=>{
     const lng = navigator.language
@@ -51,15 +54,13 @@ function App() {
         const response = await axios(`https://all-squash-courts.onrender.com/${endpoint}`)
 
         if(response){
-
-
-          if(endpoint === "courts"){
-            dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
-            
-          }
-          else(
-            dispatch({type:"SET_STORES",payload:{stores:response.data.stores}})
-          )
+            if(endpoint === "courts"){
+              dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
+              
+            }
+            else(
+              dispatch({type:"SET_STORES",payload:{stores:response.data.stores}})
+            )
         }
         
       } 

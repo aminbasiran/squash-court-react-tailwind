@@ -40,7 +40,7 @@ const SquashCourt = () => {
                         <span onClick={()=>handleChangeTranslation("my")} className='p-1 hover:cursor-pointer'>MY</span>
                     </div>
             <h1 className='text-3xl font-extrabold mb-2 dark:text-white transition-all duration-500 ease-in-out'>{t('Squash Finder')}</h1>
-            <p className='text-zinc-600 text-md font-medium dark:text-white transition-all duration-500 ease-in-out'>{t("Play Anywhere, Anytime: Find squash courts here in Malaysia.")}<span className="hover:cursor-pointer text-fuchsia-600"> {t("Feel free to contribute.")}</span></p>
+            <p className='text-zinc-600 text-md font-medium dark:text-white transition-all duration-500 ease-in-out'>{t("Play Anywhere, Anytime: Find squash courts here in Malaysia.")} <a target="_blank" rel="noopener noreferrer" href="https://github.com/aminbasiran/squash-API"><span className="hover:cursor-pointer text-fuchsia-600"> {t("Feel free to contribute.")}</span></a></p>
             <Searchbar handleFilterBy={handleFilterCourt} filter={filter} />
             <Venuelists filter={filter} state={state.courts} isLoading={state.courtIsLoading} />
             {(Array.isArray(state.courts) && state.courts.length) > 0 && <ScrollToTopButton handleScrollToTop={handleScrollToTop}/> }
