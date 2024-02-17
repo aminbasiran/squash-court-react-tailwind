@@ -6,6 +6,7 @@ const Venuelists = ({filter,state,isLoading}) => {
     
 
     const {t} = useTranslation("global")
+    
     return (
         <>
             {isLoading? <div className='mx-auto'><ClipLoader className="mt-10" color="#db70d6" size={50}/> </div> : <main className='flex flex-col space-y-9 '>

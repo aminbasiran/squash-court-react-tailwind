@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const SquashCourt = () => {
 
-    const { t } = useTranslation("global");
+    const { t,i18n } = useTranslation("global");
     const {state} = useGlobalStore()
     const parentRef = useRef(null);
 
@@ -25,10 +25,20 @@ const SquashCourt = () => {
         setFilter(filterCriteria)
     }
 
+    
+    const handleChangeTranslation = (lang) => {
+        i18n.changeLanguage(lang)
+    }
+
     const [filter,setFilter] = useState("")
 
     return (
         <div ref={parentRef} className='main h-full overflow-y-scroll '>
+            <div className='text-xs text dark:text-white'>
+                        <span onClick={()=>handleChangeTranslation("en")} className='p-1 hover:cursor-pointer'>EN</span>
+                        {/* <span onClick={()=>handleChangeTranslation("es")} className='p-1 hover:cursor-pointer'>ES</span> */}
+                        <span onClick={()=>handleChangeTranslation("my")} className='p-1 hover:cursor-pointer'>MY</span>
+                    </div>
             <h1 className='text-3xl font-extrabold mb-2 dark:text-white transition-all duration-500 ease-in-out'>{t('Squash Finder')}</h1>
             <p className='text-zinc-600 text-md font-medium dark:text-white transition-all duration-500 ease-in-out'>{t("Play Anywhere, Anytime: Find squash courts here in Malaysia.")}<span className="hover:cursor-pointer text-fuchsia-600"> {t("Feel free to contribute.")}</span></p>
             <Searchbar handleFilterBy={handleFilterCourt} filter={filter} />

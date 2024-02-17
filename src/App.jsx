@@ -7,7 +7,6 @@ import { useGlobalStore } from "./ContextProvider"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useTranslation } from "react-i18next"
 
-
 const WrappedSquashCourtWithLayout = Layout(SquashCourt)
 const WrappedSquashStoreWithLayout = Layout(SquashStore)
 
@@ -49,9 +48,10 @@ function App() {
   useLayoutEffect(()=>{
     const fetchData = async(endpoint) =>{
       try {
-        const response = await axios(`http://localhost:3000/${endpoint}`)
+        const response = await axios(`https://all-squash-courts.onrender.com/${endpoint}`)
 
         if(response){
+
 
           if(endpoint === "courts"){
             dispatch({type:"SET_COURTS",payload:{courts:response.data.courts}})
@@ -80,8 +80,8 @@ function App() {
       }
     }
 
-    setTimeout(()=>fetchData("courts"),2000)
-    setTimeout(()=>fetchData("stores"),6000)
+    fetchData("courts")
+    fetchData("stores")
     
   },[])
 
